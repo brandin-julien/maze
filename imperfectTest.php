@@ -58,9 +58,12 @@ function imperfectMaze($maze_height, $maze_width)
         }
     }
 
-    printLaby($mazeMap);
+    printMaze($mazeMap, $maze_height, $maze_width);
+
+    //printLaby($mazeMap);
 }
 
+/*
 function printLaby($mazeMap){
 
     $maze_width = sizeof($mazeMap[0]);
@@ -77,5 +80,4 @@ function printLaby($mazeMap){
         }
         echo("<br>");
     }
-}
-?>
+}*/

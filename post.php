@@ -2,6 +2,7 @@
 
 require_once("test.php");
 require_once("imperfectTest.php");
+require_once("printMaze.php");
 
 /*
 define("wall", "<img src='https://user.oc-static.com/files/347001_348000/347995.png' style='width:20px; height: 20px;'>");

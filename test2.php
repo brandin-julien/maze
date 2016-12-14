@@ -13,9 +13,9 @@ function perfectMaze($maze_height, $maze_width)
     $x_pos = 1;
     $y_pos = 1;
     $maze[$x_pos][$y_pos] = 0;
-    array_push($moves, $y_pos + ($x_pos * $maze_width));
+    array_push($moves, $y_pos + ($x_pos * 2));
     while (count($moves)) {
-        //var_dump($moves);
+        var_dump($moves);
 
         $possible_directions = "";
         if ($maze[$x_pos + 2][$y_pos] == 1 and $x_pos + 2 != 0 and $x_pos + 2 != $maze_height - 1) {
@@ -54,18 +54,22 @@ function perfectMaze($maze_height, $maze_width)
                     $y_pos += 2;
                     break;
             }
-            array_push($moves, $y_pos + ($x_pos * $maze_width));
+            array_push($moves, $y_pos + ($x_pos * 2));
         } else {
             $back = array_pop($moves);
-            $x_pos = floor($back / $maze_width);
-            $y_pos = $back % $maze_width;
+            $x_pos = floor($back / 2);
+            $y_pos = $back - ($x_pos * 2);
         }
     }
+
+    var_dump($moves);
 
     $maze[0][0] = 2;
     $maze[0][1] = 0;
     $maze[$maze_height - 2][$maze_width - 3] = 0;
     $maze[$maze_height - 2][$maze_width - 2] = 0;
+
+    printMaze($maze, $maze_height, $maze_width);
 
     $maze = solution($maze, $maze_height, $maze_width);
     printMaze($maze, $maze_height, $maze_width);
