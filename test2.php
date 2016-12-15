@@ -1,5 +1,15 @@
 <?php
-error_reporting(E_ERROR | E_PARSE);
+//error_reporting(E_ERROR | E_PARSE);
+require_once("printMaze.php");
+
+define("wall", "<img src='img/wall.png' style='width:20px; height: 20px;'>");
+define("corridor", "<img src='img/corridor.jpg' style='width:20px; height: 20px;'>");
+define("solution", "<img src='img/solution.jpg' style='width:20px; height: 20px;'>");
+define("link", "<img src='img/link.jpg' style='width:20px; height: 20px;'>");
+define("zelda", "<img src='img/zelda.png' style='width:20px; height: 20px;'>");
+define("back", "<img src='http://www.expertmultimedia.ch/ressources/graphisme-symboles-logos/symboles-1/carre-violet/image_preview' style='width:20px; height: 20px;'>");
+
+perfectMaze(10,10);
 
 function perfectMaze($maze_height, $maze_width)
 {
@@ -13,7 +23,8 @@ function perfectMaze($maze_height, $maze_width)
     $x_pos = 1;
     $y_pos = 1;
     $maze[$x_pos][$y_pos] = 0;
-    array_push($moves, $y_pos + ($x_pos * 2));
+    //array_push($moves, $y_pos + ($x_pos * 2));
+    array_push($moves, array("x_pos" => $x_pos, "y_pos" => $y_pos));
     while (count($moves)) {
         var_dump($moves);
 
@@ -54,11 +65,17 @@ function perfectMaze($maze_height, $maze_width)
                     $y_pos += 2;
                     break;
             }
-            array_push($moves, $y_pos + ($x_pos * 2));
+            //array_push($moves, $y_pos + ($x_pos * 2));
+            array_push($moves, array("x_pos" => $x_pos, "y_pos" => $y_pos));
         } else {
+            $back = array_pop($moves);
+            $x_pos = $back["x_pos"];
+            $y_pos = $back["y_pos"];
+            /*
             $back = array_pop($moves);
             $x_pos = floor($back / 2);
             $y_pos = $back - ($x_pos * 2);
+            */
         }
     }
 
@@ -79,6 +96,9 @@ function perfectMaze($maze_height, $maze_width)
 function solution($maze, $maze_height, $maze_width){
     $new_maze_height = $maze_height - 2;
     $new_maze_width = $maze_width - 2;
+
+    var_dump($new_maze_height);
+    var_dump($new_maze_width);
 
     $x = 0;
     $y = 0;

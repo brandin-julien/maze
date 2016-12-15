@@ -14,10 +14,14 @@ define("back", "<img src='http://www.expertmultimedia.ch/ressources/graphisme-sy
 define("wall", "<img src='img/wall.png' style='width:20px; height: 20px;'>");
 define("corridor", "<img src='img/corridor.jpg' style='width:20px; height: 20px;'>");
 define("solution", "<img src='img/solution.jpg' style='width:20px; height: 20px;'>");
+define("link", "<img src='img/link.jpg' style='width:20px; height: 20px;'>");
+define("zelda", "<img src='img/zelda.png' style='width:20px; height: 20px;'>");
 define("back", "<img src='http://www.expertmultimedia.ch/ressources/graphisme-symboles-logos/symboles-1/carre-violet/image_preview' style='width:20px; height: 20px;'>");
 
 if($_POST['type'] == 'perfect'){
     perfectMaze(intval($_POST['height']), intval($_POST['width']));
 }elseif($_POST['type'] == 'imperfect'){
     imperfectMaze(intval($_POST['height']), intval($_POST['width']));
+}else{
+    header("Location: choice.html");
 }
