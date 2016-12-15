@@ -1,8 +1,9 @@
 <?php
 
-require_once("test.php");
-require_once("imperfectTest.php");
+require_once("perfectMaze.php");
+require_once("imperfectMaze.php");
 require_once("printMaze.php");
+error_reporting(E_ERROR | E_PARSE);
 
 /*
 define("wall", "<img src='https://user.oc-static.com/files/347001_348000/347995.png' style='width:20px; height: 20px;'>");
@@ -25,3 +26,15 @@ if($_POST['type'] == 'perfect'){
 }else{
     header("Location: choice.html");
 }
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A-MAZE-ING</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+</head>
+<body>
+
+</body>
+</html>
